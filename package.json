@@ -5,6 +5,9 @@
   "dependencies": {
     "axios": "^0.20.0",
     "chai": "^4.2.0",
-    "cucumber": "^6.0.5"
+    "cucumber": "^6.0.5",
+    "pg": "^8.3.3",
+    "puppeteer": "^5.2.1",
+    "sequelize": "^6.3.5"
   }
 }
