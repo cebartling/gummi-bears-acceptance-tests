@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "cuke-all": "./node_modules/.bin/cucumber-js  features/**/*.feature"
+  },
+  "dependencies": {
+    "cucumber": "^6.0.5"
+  }
+}
