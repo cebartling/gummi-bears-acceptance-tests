@@ -2,7 +2,7 @@ import * as dotenvConfig from "dotenv/config";
 import { expect } from "chai";
 import { setWorldConstructor, setDefaultTimeout } from "cucumber";
 import puppeteer from "puppeteer";
-import {WelcomePage} from "./WelcomePage";
+import {WelcomePage} from "../page_objects/WelcomePage";
 
 // const PAGE = process.env.WEBAPP_URL;
 const HEADLESS = process.env.HEADLESS !== 'false';
