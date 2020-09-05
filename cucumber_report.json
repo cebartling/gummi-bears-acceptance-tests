@@ -1,264 +1,211 @@
 [
   {
     "keyword": "Feature",
-    "name": "Sign in to Gummi Bears",
+    "name": "Manage todo list",
     "line": 1,
-    "id": "sign-in-to-gummi-bears",
+    "id": "manage-todo-list",
     "tags": [],
     "uri": "features/common/sign_in.feature",
     "elements": [
       {
-        "id": "sign-in-to-gummi-bears;easy-maths",
+        "id": "manage-todo-list;add-todo",
         "keyword": "Scenario",
         "line": 3,
-        "name": "easy maths",
+        "name": "add todo",
         "tags": [],
         "type": "scenario",
         "steps": [
           {
-            "arguments": [],
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features/support/steps.js:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1115000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Label"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Clean the kitchen"
+                    ]
+                  }
+                ]
+              }
+            ],
             "keyword": "Given ",
             "line": 4,
-            "name": "a variable set to 1",
+            "name": "I have the todo list",
             "match": {
-              "location": "features/support/steps.js:4"
+              "location": "features/support/steps.js:11"
             },
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 344000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 5,
-            "name": "I increment the variable by 4",
-            "match": {
-              "location": "features/support/steps.js:8"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 6,
-            "name": "the variable should contain 5",
-            "match": {
-              "location": "features/support/steps.js:12"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 0
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "description": "  In order to do maths\n  As a developer\n  I want to increment variables",
-    "keyword": "Feature",
-    "name": "Simple maths",
-    "line": 1,
-    "id": "simple-maths",
-    "tags": [],
-    "uri": "features/simple_math.feature",
-    "elements": [
-      {
-        "id": "simple-maths;easy-maths",
-        "keyword": "Scenario",
-        "line": 6,
-        "name": "easy maths",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
             "line": 7,
-            "name": "a variable set to 1",
+            "name": "I add the todo item \"Prepare dinner\" to the list",
             "match": {
-              "location": "features/support/steps.js:4"
+              "location": "features/support/steps.js:18"
             },
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 51000000
             }
           },
           {
             "arguments": [],
-            "keyword": "When ",
+            "keyword": "Then ",
             "line": 8,
-            "name": "I increment the variable by 1",
+            "name": "I expect the todo list to have 2 items",
             "match": {
-              "location": "features/support/steps.js:8"
+              "location": "features/support/steps.js:28"
             },
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 3000000
             }
           },
           {
             "arguments": [],
-            "keyword": "Then ",
+            "keyword": "And ",
             "line": 9,
-            "name": "the variable should contain 2",
+            "name": "I expect the todo item 2 to be \"Prepare dinner\"",
             "match": {
-              "location": "features/support/steps.js:12"
+              "location": "features/support/steps.js:32"
             },
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 2000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "features/support/steps.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21000000
             }
           }
         ]
       },
       {
-        "id": "simple-maths;much-more-complex-stuff",
+        "id": "manage-todo-list;delete-todo",
         "keyword": "Scenario",
-        "line": 18,
-        "name": "much more complex stuff",
+        "line": 11,
+        "name": "delete todo",
         "tags": [],
         "type": "scenario",
         "steps": [
           {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 12,
-            "name": "a variable set to 100",
+            "keyword": "Before",
+            "hidden": true,
             "match": {
-              "location": "features/support/steps.js:4"
+              "location": "features/support/steps.js:3"
             },
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 1109000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Label"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Clean the kitchen"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Prepare dinner"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I have the todo list",
+            "match": {
+              "location": "features/support/steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 428000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 13,
-            "name": "I increment the variable by 5",
+            "line": 16,
+            "name": "I press the delete button of the todo item 1",
             "match": {
-              "location": "features/support/steps.js:8"
+              "location": "features/support/steps.js:22"
             },
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 69000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 14,
-            "name": "the variable should contain 105",
+            "line": 17,
+            "name": "I expect the todo list to have 1 item",
             "match": {
-              "location": "features/support/steps.js:12"
+              "location": "features/support/steps.js:28"
             },
             "result": {
               "status": "passed",
-              "duration": 0
-            }
-          }
-        ]
-      },
-      {
-        "id": "simple-maths;much-more-complex-stuff",
-        "keyword": "Scenario",
-        "line": 19,
-        "name": "much more complex stuff",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 12,
-            "name": "a variable set to 99",
-            "match": {
-              "location": "features/support/steps.js:4"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 0
+              "duration": 2000000
             }
           },
           {
             "arguments": [],
-            "keyword": "When ",
-            "line": 13,
-            "name": "I increment the variable by 1234",
+            "keyword": "And ",
+            "line": 18,
+            "name": "I expect the todo item 1 to be \"Prepare dinner\"",
             "match": {
-              "location": "features/support/steps.js:8"
+              "location": "features/support/steps.js:32"
             },
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 2000000
             }
           },
           {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 14,
-            "name": "the variable should contain 1333",
+            "keyword": "After",
+            "hidden": true,
             "match": {
-              "location": "features/support/steps.js:12"
+              "location": "features/support/steps.js:7"
             },
             "result": {
               "status": "passed",
-              "duration": 0
-            }
-          }
-        ]
-      },
-      {
-        "id": "simple-maths;much-more-complex-stuff",
-        "keyword": "Scenario",
-        "line": 20,
-        "name": "much more complex stuff",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 12,
-            "name": "a variable set to 12",
-            "match": {
-              "location": "features/support/steps.js:4"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 13,
-            "name": "I increment the variable by 5",
-            "match": {
-              "location": "features/support/steps.js:8"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 14,
-            "name": "the variable should contain 17",
-            "match": {
-              "location": "features/support/steps.js:12"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 0
+              "duration": 15000000
             }
           }
         ]
