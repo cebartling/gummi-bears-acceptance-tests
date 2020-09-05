@@ -1,4 +1,7 @@
+require('dotenv').config();
 const { setWorldConstructor } = require("cucumber");
+import puppeteer from "puppeteer";
+
 
 class CustomWorld {
   constructor() {
@@ -12,6 +15,8 @@ class CustomWorld {
   incrementBy(number) {
     this.variable += number;
   }
+
+
 }
 
 setWorldConstructor(CustomWorld);
