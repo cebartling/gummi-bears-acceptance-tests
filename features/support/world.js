@@ -24,6 +24,10 @@ class GummiBearsWorld {
     this.page = await this.browser.newPage();
   }
 
+  async closeBrowser() {
+    await this.browser.close();
+  }
+
   async openWelcomePage() {
     await welcomePage.openPage(this.page);
   }
@@ -64,9 +68,6 @@ class GummiBearsWorld {
   //   await this.page.click(deleteButtonSelector(todoIndex));
   // }
 
-  async closeBrowser() {
-    await this.browser.close();
-  }
 }
 
 setWorldConstructor(GummiBearsWorld);
