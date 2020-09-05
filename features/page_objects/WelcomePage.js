@@ -3,6 +3,10 @@ import * as dotenvConfig from "dotenv/config";
 
 const PAGE = process.env.WEBAPP_URL;
 const HEADING_SELECTOR = '#root > main > h1';
+const SIGN_IN_LINK_SELECTOR = '#navbarCollapse > ul:nth-child(2) > li > a';
+const DASHBOARD_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto > li:nth-child(1) > a';
+const STOCKS_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto > li:nth-child(2) > a';
+const TRANSACTIONS_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto > li:nth-child(3) > a';
 
 export class WelcomePage {
 
@@ -17,5 +21,28 @@ export class WelcomePage {
             el => el.textContent.trim()
         );
         expect(welcomeHeader).to.eql('Welcome page');
+    }
+
+    async clickSignInNavLink(page) {
+        await page.waitForSelector(SIGN_IN_LINK_SELECTOR);
+        await page.click(SIGN_IN_LINK_SELECTOR);
+    }
+
+    async verifyNavigationMenu(page) {
+        const dashboardNavLink = await page.$eval(
+            DASHBOARD_NAV_LINK_SELECTOR,
+            el => el.textContent.trim()
+        );
+        expect(dashboardNavLink).to.eql('Dashboard');
+        const stocksNavLink = await page.$eval(
+            STOCKS_NAV_LINK_SELECTOR,
+            el => el.textContent.trim()
+        );
+        expect(stocksNavLink).to.eql('Stocks');
+        const transactionsNavLink = await page.$eval(
+            TRANSACTIONS_NAV_LINK_SELECTOR,
+            el => el.textContent.trim()
+        );
+        expect(transactionsNavLink).to.eql('Transactions');
     }
 }

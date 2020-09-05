@@ -36,6 +36,14 @@ class GummiBearsWorld {
     await welcomePage.verifyPage(this.page);
   }
 
+  async clickSignInNavLink() {
+    await welcomePage.clickSignInNavLink(this.page);
+  }
+
+  async verifyNavigationMenu() {
+    await welcomePage.verifyNavigationMenu(this.page);
+  }
+
   // async openTodoPage() {
   //   await this.page.goto(PAGE);
   // }
