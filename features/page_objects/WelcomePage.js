@@ -1,7 +1,5 @@
 import {expect} from "chai";
-import * as dotenvConfig from "dotenv/config";
 
-const PAGE = process.env.WEBAPP_URL;
 const HEADING_SELECTOR = '#root > main > h1';
 const SIGN_IN_LINK_SELECTOR = '#navbarCollapse > ul:nth-child(2) > li > a';
 const DASHBOARD_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto > li:nth-child(1) > a';
@@ -10,8 +8,8 @@ const TRANSACTIONS_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto 
 
 export class WelcomePage {
 
-    async openPage(page) {
-        await page.goto(PAGE);
+    async openPage(url, page) {
+        await page.goto(url);
         await page.waitForSelector(HEADING_SELECTOR);
     }
 
@@ -23,7 +21,7 @@ export class WelcomePage {
         expect(welcomeHeader).to.eql('Welcome page');
     }
 
-    async clickSignInNavLink(page) {
+    async clickSignInNavigationLink(page) {
         await page.waitForSelector(SIGN_IN_LINK_SELECTOR);
         await page.click(SIGN_IN_LINK_SELECTOR);
     }
