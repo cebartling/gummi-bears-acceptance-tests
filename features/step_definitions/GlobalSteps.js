@@ -1,11 +1,18 @@
-import {After, Before} from "cucumber";
+import {After, AfterAll, Before, BeforeAll} from "cucumber";
+import DatabaseContext from "../support/DatabaseContext";
+
+BeforeAll(async function() {
+    return await DatabaseContext.openDatabaseConnection();
+});
+
+AfterAll(async function() {
+    return await DatabaseContext.closeDatabaseConnection();
+});
 
 Before(async function(testCase) {
-    await this.openDatabaseConnection();
     return await this.openBrowserPage();
 });
 
 After(async function() {
-    await this.closeDatabaseConnection();
     return await this.closeBrowser();
 });
