@@ -11,6 +11,7 @@ export class StocksPage {
     }
 
     async verifyPage(page) {
+        await page.waitForSelector(HEADING_SELECTOR);
         const pageHeader = await page.$eval(
             HEADING_SELECTOR,
             el => el.textContent.trim()
