@@ -5,14 +5,14 @@ const STOCKS_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto > li:n
 
 class StocksPage {
 
-    async clickStocksNavigationLink(page) {
-        await page.waitForSelector(STOCKS_NAV_LINK_SELECTOR);
-        await page.click(STOCKS_NAV_LINK_SELECTOR);
+    async clickStocksNavigationLink(world) {
+        await world.page.waitForSelector(STOCKS_NAV_LINK_SELECTOR);
+        await world.page.click(STOCKS_NAV_LINK_SELECTOR);
     }
 
-    async verifyPage(page) {
-        await page.waitForSelector(HEADING_SELECTOR);
-        const pageHeader = await page.$eval(
+    async verifyPage(world) {
+        await world.page.waitForSelector(HEADING_SELECTOR);
+        const pageHeader = await world.page.$eval(
             HEADING_SELECTOR,
             el => el.textContent.trim()
         );
