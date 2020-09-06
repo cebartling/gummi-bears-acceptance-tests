@@ -16,4 +16,13 @@ WEBAPP_URL=xxxxx
 HEADLESS=false
 ```
 
+## Running the test suite
 
+Running the test suite is as easy as `npm test` or `yarn test`. This will kick off 
+Cucumber and execute all the feature files that it finds. 
+
+## Generating the test results report
+
+When the test suite runs, it generates a `cucumber_report.json` file with the execution
+results. Running `npm run test:report` or `yarn test:report` will generate an HTML report
+from the JSON test results and open a browser for you to view the results.
