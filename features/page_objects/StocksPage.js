@@ -3,7 +3,7 @@ import {expect} from "chai";
 const HEADING_SELECTOR = '#root > main > div > div:nth-child(1) > h2';
 const STOCKS_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto > li:nth-child(2) > a';
 
-export class StocksPage {
+class StocksPage {
 
     async clickStocksNavigationLink(page) {
         await page.waitForSelector(STOCKS_NAV_LINK_SELECTOR);
@@ -19,3 +19,5 @@ export class StocksPage {
         expect(pageHeader).to.eql('Stocks');
     }
 }
+
+export default new StocksPage();

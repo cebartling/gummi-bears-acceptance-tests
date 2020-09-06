@@ -1,11 +1,11 @@
 import {Then, When} from "cucumber";
-
+import StocksPage from "../page_objects/StocksPage";
 
 When(/^I click the stocks nav link$/, async function() {
-    return await this.clickStocksNavigationLink();
+    return await StocksPage.clickStocksNavigationLink(this.page);
 });
 
 Then(/^I should see the stocks page$/, async function() {
-    return await this.verifyStocksPage();
+    return await StocksPage.verifyPage(this.page);
 });
 

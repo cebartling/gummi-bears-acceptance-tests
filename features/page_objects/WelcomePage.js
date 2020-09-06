@@ -6,7 +6,7 @@ const DASHBOARD_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto > l
 const STOCKS_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto > li:nth-child(2) > a';
 const TRANSACTIONS_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto > li:nth-child(3) > a';
 
-export class WelcomePage {
+class WelcomePage {
 
     async openPage(url, page) {
         await page.goto(url);
@@ -44,3 +44,5 @@ export class WelcomePage {
         expect(transactionsNavLink).to.eql('Transactions');
     }
 }
+
+export default new WelcomePage();
