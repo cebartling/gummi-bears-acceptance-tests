@@ -1941,7 +1941,7 @@ pump@^3.0.0:
     end-of-stream "^1.1.0"
     once "^1.3.1"
 
-puppeteer-screenshot-tester@^1.3.1:
+puppeteer-screenshot-tester@1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/puppeteer-screenshot-tester/-/puppeteer-screenshot-tester-1.3.1.tgz#e8eee1bceb872ac91e83012697f24898c03b46d8"
   integrity sha512-67laUYiouFwPaEoIXjeMU50JyJi3407HGaIpn4DR10eWJw+pNa7BlEOaR6vyBZFIzoIzarGwl0YdLP9kQ7uvHA==
