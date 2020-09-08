@@ -1,11 +1,10 @@
-import * as dotenvConfig from "dotenv/config"; // DON'T REMOVE THIS!
-import Sequelize from "sequelize";
+import * as dotenvConfig from 'dotenv/config'; // DON'T REMOVE THIS!
+import Sequelize from 'sequelize';
 
-const DATABASE = process.env.DATABASE;
-const DB_USERNAME = process.env.DB_USERNAME;
-const DB_PASSWORD = process.env.DB_PASSWORD;
-const DB_HOSTNAME = process.env.DB_HOSTNAME;
-
+const { DATABASE } = process.env;
+const { DB_USERNAME } = process.env;
+const { DB_PASSWORD } = process.env;
+const { DB_HOSTNAME } = process.env;
 
 class DatabaseContext {
   async openDatabaseConnection() {
@@ -14,8 +13,8 @@ class DatabaseContext {
       dialectOptions: {
         ssl: {
           require: true,
-          rejectUnauthorized: false
-        }
+          rejectUnauthorized: false,
+        },
       },
       logging: false,
     });
