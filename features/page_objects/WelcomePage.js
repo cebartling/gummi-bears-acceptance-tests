@@ -7,36 +7,40 @@ const STOCKS_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto > li:n
 const TRANSACTIONS_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto > li:nth-child(3) > a';
 
 class WelcomePage {
-  async openPage(world) {
-    await world.page.goto(world.url);
-    await world.page.waitForSelector(HEADING_SELECTOR);
+  constructor(world) {
+    this.world = world;
   }
 
-  async verifyPage(world) {
-    const welcomeHeader = await world.page.$eval(
+  async openPage() {
+    await this.world.page.goto(this.world.url);
+    await this.world.page.waitForSelector(HEADING_SELECTOR);
+  }
+
+  async verifyPage() {
+    const welcomeHeader = await this.world.page.$eval(
       HEADING_SELECTOR,
       (el) => el.textContent.trim(),
     );
     expect(welcomeHeader).to.eql('Welcome page');
   }
 
-  async clickSignInNavigationLink(world) {
-    await world.page.waitForSelector(SIGN_IN_LINK_SELECTOR);
-    await world.page.click(SIGN_IN_LINK_SELECTOR);
+  async clickSignInNavigationLink() {
+    await this.world.page.waitForSelector(SIGN_IN_LINK_SELECTOR);
+    await this.world.page.click(SIGN_IN_LINK_SELECTOR);
   }
 
-  async verifyNavigationMenu(world) {
-    const dashboardNavLink = await world.page.$eval(
+  async verifyNavigationMenu() {
+    const dashboardNavLink = await this.world.page.$eval(
       DASHBOARD_NAV_LINK_SELECTOR,
       (el) => el.textContent.trim(),
     );
     expect(dashboardNavLink).to.eql('Dashboard');
-    const stocksNavLink = await world.page.$eval(
+    const stocksNavLink = await this.world.page.$eval(
       STOCKS_NAV_LINK_SELECTOR,
       (el) => el.textContent.trim(),
     );
     expect(stocksNavLink).to.eql('Stocks');
-    const transactionsNavLink = await world.page.$eval(
+    const transactionsNavLink = await this.world.page.$eval(
       TRANSACTIONS_NAV_LINK_SELECTOR,
       (el) => el.textContent.trim(),
     );
@@ -44,4 +48,4 @@ class WelcomePage {
   }
 }
 
-export default new WelcomePage();
+export default WelcomePage;
