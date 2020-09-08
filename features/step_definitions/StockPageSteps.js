@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 import { Then, When } from 'cucumber';
 import StocksPage from '../page_objects/StocksPage';
 

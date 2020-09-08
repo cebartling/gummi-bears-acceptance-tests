@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 import { Given, Then, When } from 'cucumber';
 import WelcomePage from '../page_objects/WelcomePage';
 
