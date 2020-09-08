@@ -26,6 +26,8 @@
     "sequelize": "6.3.5"
   },
   "scripts": {
+    "eslint": "eslint features/**/*.js",
+    "eslint:fix": "eslint features/**/*.js --fix",
     "test": "./node_modules/.bin/cucumber-js --require-module @babel/register --format json:cucumber_report.json",
     "test:report": "node report.js"
   }
