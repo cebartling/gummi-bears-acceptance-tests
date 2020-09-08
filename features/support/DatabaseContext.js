@@ -1,4 +1,5 @@
-import * as dotenvConfig from 'dotenv/config'; // DON'T REMOVE THIS!
+import * as dotenvConfig from 'dotenv/config'; // eslint-disable-line no-unused-vars
+
 import Sequelize from 'sequelize';
 
 const { DATABASE } = process.env;
@@ -20,8 +21,10 @@ class DatabaseContext {
     });
     try {
       await this.sequelize.authenticate();
+      // eslint-disable-next-line no-console
       console.info(`Successfully connected and authenticated to ${DATABASE} at ${DB_HOSTNAME} as ${DB_USERNAME}.\n`);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('Unable to connect to the database:', error);
     }
   }
@@ -30,8 +33,10 @@ class DatabaseContext {
     if (this.sequelize) {
       try {
         await this.sequelize.close();
+        // eslint-disable-next-line no-console
         console.info(`\n\nSuccessfully disconnected ${DATABASE} at ${DB_HOSTNAME}.`);
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Unable to disconnect from the database:', error);
       }
     }

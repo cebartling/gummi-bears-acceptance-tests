@@ -1,4 +1,5 @@
-import * as dotenvConfig from 'dotenv/config';
+import * as dotenvConfig from 'dotenv/config'; // eslint-disable-line no-unused-vars
+
 import { setWorldConstructor, setDefaultTimeout } from 'cucumber';
 import puppeteer from 'puppeteer';
 
