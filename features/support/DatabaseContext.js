@@ -25,11 +25,6 @@ class DatabaseContext {
     try {
       await this.sequelize.authenticate();
       initStockModel(this.sequelize);
-
-      const count = await this.sequelize.models.Stock.count({});
-      // eslint-disable-next-line no-console
-      console.log(`Stocks count: ${count}`);
-
       // eslint-disable-next-line no-console
       console.info(`Successfully connected and authenticated to ${DATABASE} at ${DB_HOSTNAME} as ${DB_USERNAME}.\n`);
     } catch (error) {
@@ -50,6 +45,8 @@ class DatabaseContext {
       }
     }
   }
+
+  get stockModel() { return this.sequelize.models.Stock; }
 }
 
 export default new DatabaseContext();
