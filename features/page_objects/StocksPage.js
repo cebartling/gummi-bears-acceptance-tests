@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import StockModel from '../support/models/StockModel';
+import DatabaseContext from '../support/DatabaseContext';
 
 const HEADING_SELECTOR = '#root > main > div > div:nth-child(1) > h2';
 const STOCKS_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto > li:nth-child(2) > a';
@@ -21,9 +21,6 @@ class StocksPage {
       (el) => el.textContent.trim(),
     );
     expect(pageHeader).to.eql('Stocks');
-    const count = await StockModel.count({});
-    // eslint-disable-next-line no-console
-    console.log(`Stocks count: ${count}`);
   }
 }
 

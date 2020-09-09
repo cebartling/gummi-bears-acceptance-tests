@@ -1,12 +1,14 @@
 import * as dotenvConfig from 'dotenv/config'; // eslint-disable-line no-unused-vars
 
 import Sequelize from 'sequelize';
-import { initStockModel } from './models/StockModel';
+import initStockModel from './models/StockModel';
 
-const { DATABASE } = process.env;
-const { DB_USERNAME } = process.env;
-const { DB_PASSWORD } = process.env;
-const { DB_HOSTNAME } = process.env;
+const {
+  DATABASE,
+  DB_USERNAME,
+  DB_PASSWORD,
+  DB_HOSTNAME,
+} = process.env;
 
 class DatabaseContext {
   async openDatabaseConnection() {
@@ -23,6 +25,11 @@ class DatabaseContext {
     try {
       await this.sequelize.authenticate();
       initStockModel(this.sequelize);
+
+      const count = await this.sequelize.models.Stock.count({});
+      // eslint-disable-next-line no-console
+      console.log(`Stocks count: ${count}`);
+
       // eslint-disable-next-line no-console
       console.info(`Successfully connected and authenticated to ${DATABASE} at ${DB_HOSTNAME} as ${DB_USERNAME}.\n`);
     } catch (error) {

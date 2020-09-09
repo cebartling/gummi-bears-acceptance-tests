@@ -1,8 +1,6 @@
-import Model, { DataTypes } from 'sequelize';
+import { DataTypes } from 'sequelize';
 
-class StockModel extends Model {}
-
-export const initStockModel = (sequelize) => {
+const initStockModel = function (sequelize) {
   const modelAttributes = {
     id: {
       type: DataTypes.UUIDV4,
@@ -38,8 +36,11 @@ export const initStockModel = (sequelize) => {
       type: DataTypes.DECIMAL,
     },
   };
-  const modelOptions = { sequelize, modelName: 'Stock' };
-  StockModel.init(modelAttributes, modelOptions);
+
+  const options = {
+    tableName: 'stocks',
+  };
+  return sequelize.define('Stock', modelAttributes, options);
 };
 
-export default StockModel;
+export default initStockModel;
