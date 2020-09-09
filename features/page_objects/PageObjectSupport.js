@@ -3,6 +3,16 @@ class PageObjectSupport {
     this.world = world;
   }
 
+  async click(selector) {
+    try {
+      await this.world.page.waitForSelector(selector);
+      await this.world.page.click(selector);
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error(err);
+    }
+  }
+
   async textContentBySelector(selector) {
     let found;
     try {
@@ -15,10 +25,9 @@ class PageObjectSupport {
     return found;
   }
 
-  async findHyperlinkByContainsText(expected) {
+  async xpath(xpathQuery) {
     let match;
     try {
-      const xpathQuery = `(//a[contains(text(), '${expected}')])`;
       await this.world.page.waitForXPath(xpathQuery);
       match = await this.world.page.$x(xpathQuery);
     } catch (err) {
