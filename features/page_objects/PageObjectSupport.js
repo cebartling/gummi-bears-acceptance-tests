@@ -25,6 +25,18 @@ class PageObjectSupport {
     return found;
   }
 
+  async elementsBySelector(selector) {
+    let found;
+    try {
+      await this.world.page.waitForSelector(selector);
+      found = await this.world.page.$$(selector);
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error(err);
+    }
+    return found;
+  }
+
   async xpath(xpathQuery) {
     let match;
     try {
