@@ -20,6 +20,7 @@
     "chai": "4.2.0",
     "cucumber": "6.0.5",
     "dotenv": "8.2.0",
+    "lodash": "4.17.20",
     "pg": "8.3.3",
     "puppeteer": "5.2.1",
     "puppeteer-screenshot-tester": "1.3.1",
