@@ -3,6 +3,7 @@ import * as dotenvConfig from 'dotenv/config'; // eslint-disable-line no-unused-
 import Sequelize from 'sequelize';
 import initStockModel from './models/StockModel';
 import initUserModel from './models/UserModel';
+import initOrderModel from './models/OrderModel';
 
 const {
   DATABASE,
@@ -27,10 +28,9 @@ class DatabaseContext {
       await this.sequelize.authenticate();
       initStockModel(this.sequelize);
       initUserModel(this.sequelize);
-      // eslint-disable-next-line no-console
+      initOrderModel(this.sequelize);
       console.info(`Successfully connected and authenticated to ${DATABASE} at ${DB_HOSTNAME} as ${DB_USERNAME}.\n`);
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error('Unable to connect to the database:', error);
     }
   }
@@ -39,16 +39,24 @@ class DatabaseContext {
     if (this.sequelize) {
       try {
         await this.sequelize.close();
-        // eslint-disable-next-line no-console
         console.info(`\n\nSuccessfully disconnected ${DATABASE} at ${DB_HOSTNAME}.`);
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error('Unable to disconnect from the database:', error);
       }
     }
   }
 
-  get stockModel() { return this.sequelize.models.Stock; }
+  get stockModel() {
+    return this.sequelize.models.Stock;
+  }
+
+  get userModel() {
+    return this.sequelize.models.User;
+  }
+
+  get orderModel() {
+    return this.sequelize.models.Order;
+  }
 }
 
 export default new DatabaseContext();
