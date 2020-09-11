@@ -11,5 +11,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'no-unused-expressions': 'off',
+    'class-methods-use-this': 'off',
   },
 };

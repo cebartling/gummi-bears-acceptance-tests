@@ -15,15 +15,11 @@ class StocksPage extends PageObjectSupport {
   async verifyPage() {
     const value = await this.textContentBySelector(HEADING_SELECTOR);
     expect(value).to.eql('Stocks');
-    // const stocks = await DatabaseContext.stockModel.findAll({ attributes: ['id', 'name', 'symbol'] });
+    const stocks = await DatabaseContext.stockModel.findAll({ attributes: ['id', 'name', 'symbol'] });
     const tableRows = await this.elementsBySelector(TABLE_ROWS_SELECTOR);
     each(tableRows, async (tableRow) => {
-      const fields = await tableRow.$$('td');
-      console.log(fields[0]);
-      // const hyperlinkText = await fields[0].$eval('a', (el) => el.textContent.trim());
-      // console.log(hyperlinkText);
-      // const foundByName = find(stocks, (stock) => stock.name === hyperlinkText);
-      // expect(foundByName).to.not.be.undefined;
+      const companyName = await tableRow.$eval('td.stock-table-cell-name', (el) => el.textContent.trim());
+      expect(find(stocks, (stock) => stock.name === companyName)).not.to.be.undefined;
     });
   }
 }
