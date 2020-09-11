@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { each, find } from 'lodash';
+import { each } from 'lodash';
 import PageObjectSupport from './PageObjectSupport';
 import DatabaseContext from '../support/DatabaseContext';
 
@@ -15,11 +15,15 @@ class StocksPage extends PageObjectSupport {
   async verifyPage() {
     const value = await this.textContentBySelector(HEADING_SELECTOR);
     expect(value).to.eql('Stocks');
-    const stocks = await DatabaseContext.stockModel.findAll({ attributes: ['id', 'name', 'symbol'] });
     const tableRows = await this.elementsBySelector(TABLE_ROWS_SELECTOR);
     each(tableRows, async (tableRow) => {
       const companyName = await tableRow.$eval('td.stock-table-cell-name', (el) => el.textContent.trim());
-      expect(find(stocks, (stock) => stock.name === companyName)).not.to.be.undefined;
+      const found = await DatabaseContext.stockModel.findOne({
+        where: {
+          name: companyName,
+        },
+      });
+      expect(found).not.to.be.undefined;
     });
   }
 }
