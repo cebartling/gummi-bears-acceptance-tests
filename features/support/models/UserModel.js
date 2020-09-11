@@ -21,11 +21,13 @@ const initUserModel = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
       field: 'username',
+      unique: true,
     },
     authToken: {
       type: DataTypes.STRING,
       allowNull: true,
       field: 'auth_token',
+      unique: true,
     },
     createdAt: {
       type: DataTypes.TIME,
