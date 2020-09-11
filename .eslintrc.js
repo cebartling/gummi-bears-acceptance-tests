@@ -13,5 +13,6 @@ module.exports = {
   rules: {
     'no-unused-expressions': 'off',
     'class-methods-use-this': 'off',
+    'no-console': 'off',
   },
 };
