@@ -1,19 +1,31 @@
 import { DataTypes } from 'sequelize';
 
-const initStockModel = (sequelize) => {
+const initUserModel = (sequelize) => {
   const modelAttributes = {
     id: {
       type: DataTypes.UUIDV4,
       allowNull: false,
       primaryKey: true,
     },
-    name: {
+    firstName: {
       type: DataTypes.STRING,
       allowNull: false,
+      field: 'first_name',
     },
-    symbol: {
+    lastName: {
       type: DataTypes.STRING,
       allowNull: false,
+      field: 'last_name',
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      field: 'username',
+    },
+    authToken: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      field: 'auth_token',
     },
     createdAt: {
       type: DataTypes.TIME,
@@ -25,28 +37,12 @@ const initStockModel = (sequelize) => {
       allowNull: false,
       field: 'updated_at',
     },
-    currentPrice: {
-      type: DataTypes.DECIMAL,
-      field: 'current_price',
-    },
-    openPrice: {
-      type: DataTypes.DECIMAL,
-      field: 'open_price',
-    },
-    highPrice: {
-      type: DataTypes.DECIMAL,
-      field: 'high_price',
-    },
-    lowPrice: {
-      type: DataTypes.DECIMAL,
-      field: 'low_price',
-    },
   };
 
   const options = {
-    tableName: 'stocks',
+    tableName: 'users',
   };
-  return sequelize.define('Stock', modelAttributes, options);
+  return sequelize.define('User', modelAttributes, options);
 };
 
-export default initStockModel;
+export default initUserModel;
