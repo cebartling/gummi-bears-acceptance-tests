@@ -7,7 +7,7 @@ const HEADING_SELECTOR = '#root > main > div > div:nth-child(1) > h2';
 const STOCKS_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto > li:nth-child(2) > a';
 const TABLE_ROWS_SELECTOR = '#root > main > div > div:nth-child(3) > table > tbody > tr';
 
-class StocksPage extends PageObjectSupport {
+class StocksListingPage extends PageObjectSupport {
   async clickStocksNavigationLink() {
     await this.click(STOCKS_NAV_LINK_SELECTOR);
   }
@@ -28,4 +28,4 @@ class StocksPage extends PageObjectSupport {
   }
 }
 
-export default StocksPage;
+export default StocksListingPage;
