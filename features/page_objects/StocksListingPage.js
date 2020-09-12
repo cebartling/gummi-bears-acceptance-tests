@@ -4,7 +4,7 @@ import PageObjectSupport from './PageObjectSupport';
 import DatabaseContext from '../support/DatabaseContext';
 
 const HEADING_SELECTOR = '#root > main > div > div:nth-child(1) > h2';
-const STOCKS_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto > li:nth-child(2) > a';
+const STOCKS_NAV_LINK_SELECTOR = '#navbarCollapse > ul.navbar-nav.mr-auto > li > a.stocks-nav-link';
 const TABLE_ROWS_SELECTOR = '#root > main > div > div:nth-child(3) > table > tbody > tr';
 
 class StocksListingPage extends PageObjectSupport {
