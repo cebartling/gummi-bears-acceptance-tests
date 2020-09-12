@@ -7,15 +7,14 @@ import PlaywrightContext from '../support/PlaywrightContext';
 
 BeforeAll(async () => {
   await DatabaseContext.openDatabaseConnection();
-  await PlaywrightContext.launchBrowser();
 });
 
 AfterAll(async () => {
-  await PlaywrightContext.closeBrowser();
   await DatabaseContext.closeDatabaseConnection();
 });
 
 Before(async () => {
+  await PlaywrightContext.launchBrowser();
   await PlaywrightContext.createContext();
   await PlaywrightContext.createPage();
 });
@@ -23,4 +22,5 @@ Before(async () => {
 After(async () => {
   await PlaywrightContext.closePage();
   await PlaywrightContext.closeContext();
+  await PlaywrightContext.closeBrowser();
 });
