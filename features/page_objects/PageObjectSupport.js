@@ -28,6 +28,18 @@ class PageObjectSupport {
     return result;
   }
 
+  async attributeValueBySelector(selector, attributeName) {
+    let result;
+    try {
+      await PlaywrightContext.page.waitForSelector(selector);
+      result = await PlaywrightContext.page.$eval(selector,
+        (el) => el.getAttribute(attributeName).trim());
+    } catch (err) {
+      console.log('Exception thrown in attributeValueBySelector', err);
+    }
+    return result;
+  }
+
   async elementsBySelector(selector) {
     await PlaywrightContext.page.waitForSelector(selector);
     return PlaywrightContext.page.$$(selector);
