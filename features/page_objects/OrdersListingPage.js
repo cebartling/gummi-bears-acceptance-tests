@@ -52,7 +52,7 @@ class OrdersListingPage extends PageObjectSupport {
   async verifyOrdersTableContent() {
     const orderRows = await this.elementsBySelector(ORDERS_TABLE_ROW_SELECTOR);
     each(orderRows, async (orderRowEl) => {
-      const orderId = orderRowEl.getAttribute('data-order-id');
+      const orderId = await orderRowEl.getAttribute('data-order-id');
       const found = await DatabaseContext.orderModel.findOne({
         where: {
           id: orderId,

@@ -30,6 +30,7 @@
     "eslint": "eslint features/**/*.js",
     "eslint:fix": "eslint features/**/*.js --fix",
     "test": "./node_modules/.bin/cucumber-js --require-module @babel/register --format node_modules/cucumber-pretty",
+    "test:wip": "./node_modules/.bin/cucumber-js --require-module @babel/register --format node_modules/cucumber-pretty --tags @wip",
     "test:ci": "./node_modules/.bin/cucumber-js --require-module @babel/register --format json:cucumber_report.json",
     "test:report": "node report.js"
   }

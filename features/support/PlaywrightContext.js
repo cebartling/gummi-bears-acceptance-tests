@@ -29,6 +29,10 @@ class PlaywrightContext {
     this.context = await this.browser.newContext({
       viewport: device.viewport,
       userAgent: device.userAgent,
+      // logger: {
+      //   isEnabled: (name, severity) => name === 'browser',
+      //   log: (name, severity, message, args) => console.log(`${name} ${message}`),
+      // },
     });
   }
 
